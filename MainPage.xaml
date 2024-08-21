@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Scratch_Detection.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <!-- Layout for images in horizontal alignment -->
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+                <!-- Frame for image with shadow -->
+                <Frame HasShadow="True" CornerRadius="10" Padding="0" Margin="5">
+                    <Image
+                        x:Name="OriginalImage"
+                        WidthRequest="550"
+                        HeightRequest="350"
+                        Aspect="Fill"
+                        SemanticProperties.Description="Original image"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
+                </Frame>
+
+                <!-- Frame for image with shadow -->
+                <Frame HasShadow="True" CornerRadius="10" Padding="0" Margin="5">
+                    <Image
+                        x:Name="ProcessedImage"
+                        WidthRequest="550"
+                        HeightRequest="350"
+                        Aspect="Fill"
+                        SemanticProperties.Description="Processed image with bounding boxes"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
+                </Frame>
+            </HorizontalStackLayout>
+
+            <!-- Button to select an image -->
+            <Button
+            x:Name="SelectImageBtn"
+            Text="Select Image"
+            Clicked="OnSelectImageClicked"
+            HorizontalOptions="Center"
+            BackgroundColor="#007BFF"
+            TextColor="White"
+            CornerRadius="5"
+            Padding="10,5"
+            FontSize="16"
+            WidthRequest="200" />
+
+            <!-- Button to detect objects -->
+            <Button
+            x:Name="DetectBtn"
+            Text="Detect"
+            Clicked="OnDetectClicked"
+            HorizontalOptions="Center"
+            BackgroundColor="#28A745"
+            TextColor="White"
+            CornerRadius="5"
+            Padding="10,5"
+            FontSize="16"
+            WidthRequest="200" />
+
+            <!-- Label to display detection results -->
+            <Label
+                x:Name="ResultsLabel"
+                Text="Detection results will be shown here."
+                HorizontalOptions="Fill"
+                VerticalOptions="Start"
+                LineBreakMode="WordWrap"
+                MaxLines="10000"
+                FontSize="16"
+                Padding="5"
+                BackgroundColor="#F8F9FA"
+                TextColor="#333333" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
